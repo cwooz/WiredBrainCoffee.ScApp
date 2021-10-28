@@ -17,6 +17,19 @@ namespace WiredBrainCoffee.ScApp
             Console.WriteLine($"ContainerBase>: {ContainerBase.InstanceCountBase}");
 
             container.PrintItem<string>("From generic method in generic class");
+
+            var result1 = Add(2, 3);
+            Console.WriteLine($"Result1 = {result1}");
+            
+            var result2 = Add(2.2, 3.3);
+            Console.WriteLine($"Result2 = {result2}");
+        }
+
+        private static T Add<T>(T x, T y) where T : notnull
+        {
+            dynamic a = x;
+            dynamic b = y;
+            return a + b;
         }
     }
 
